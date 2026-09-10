@@ -22,7 +22,7 @@
 
 ## Variable definitions
 
-[Codebook location, e.g. `common/data-dictionary/`.]
+[Codebook location, e.g. `common/data-documentation/`.]
 
 ## Contact
 
