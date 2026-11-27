@@ -1,16 +1,16 @@
 # A Safe Bet: proof-of-concept evaluation
 
-A preregistered, quasi-experimental, within-person pre-post evaluation of the first live deployment of the A Safe Bet framework, assessing the feasibility, implementation and behavioural effectiveness of risk-tailored responsible gambling (RG) tools delivered within a live online gambling platform. The proof of concept (POC) ran on SunVegas, a United Kingdom-licensed online gambling platform operated by Playtech. Each participant's six-month baseline (1 April to 30 September 2024) was compared with the six-month intervention period (1 October 2024 to 31 March 2025); 6,000 participants were selected at launch, of whom 5,808 form the analytical sample. At each of six monthly Refresh Events participants received the four mandatory tools (deposit limit, loss limit, reality check and RG homepage), with deposit and loss limit variants and values tailored to their monthly risk level derived from daily BetBuddy risk classifications; zero to three add-on tools and eligible variants of mandatory tools were assigned at random by the Randomised Tool Selector; tool assignments were accompanied by context-triggered messages. No parallel control group was included and participants were not randomised to receive the framework. Analyses comprised participant-level pre-post comparisons, multilevel interrupted time-series models of monthly outcomes, and period-level and month-to-month analyses of gambling-risk states; they estimate within-person change over time rather than controlled intervention effects, and causal interpretation is limited under the interpretation framework set out in the preregistration.
+A preregistered, quasi-experimental, within-person pre-post evaluation of the first live deployment of the A Safe Bet framework, assessing the feasibility, implementation and behavioural effectiveness of risk-tailored responsible gambling (RG) tools delivered within a live online gambling platform. The proof of concept (POC) ran on SunVegas, an online casino licensed in Great Britain and owned by Playtech Plc. Each participant's six-month baseline (1 April to 30 September 2024) was compared with the six-month intervention period (1 October 2024 to 31 March 2025); 6,000 participants were selected at launch, of whom 5,808 form the analytical sample. At each of six monthly Refresh Events participants received the four mandatory tools (deposit limit, loss limit, reality check and RG homepage), with deposit and loss limit variants and values tailored to their monthly risk level derived from daily BetBuddy risk classifications; zero to three add-on tools and eligible variants of mandatory tools were assigned at random by the Randomised Tool Selector; tool assignments were accompanied by context-triggered messages. No parallel control group was included and participants were not randomised to receive the framework. Analyses comprised participant-level pre-post comparisons, multilevel interrupted time-series models of monthly outcomes, and period-level and month-to-month analyses of gambling-risk states; they estimate within-person change over time rather than controlled intervention effects, and causal interpretation is limited under the interpretation framework set out in the preregistration.
 
 ## Programme and status
 
 Part of [A Safe Bet](https://github.com/a-safe-bet-research), a research programme on player-tailored responsible gambling led by Erasmus University Rotterdam and the University of Amsterdam.
 
-**Status:** in preparation for submission.
+**Status:** submitted.
 
 ## Preregistration
 
-Open-Ended Registration on OSF Registries: https://osf.io/azqvc, registered 17 July 2026, embargoed until 30 September 2026. The registered dataset was locked on 16 July 2026 (SHA-256 recorded in the preregistration, Section 10.3). A copy of the analysis preregistration is in `protocol/`.
+Open-Ended Registration on OSF Registries: https://osf.io/azqvc, registered 17 July 2026. The registered dataset was locked on 16 July 2026 (SHA-256 recorded in the preregistration, Section 10.3). A copy of the analysis preregistration is in `protocol/01_preregistration/`.
 
 ## Preprint
 
@@ -24,26 +24,28 @@ Not yet published. Citation to be added on acceptance.
 
 | Folder | Contents |
 |---|---|
-| `protocol/` | Analysis preregistration; Framework Design, Implementation Record, Glossary, Tool and UX Inventory, Player Communications |
-| `materials/` | Tool and message specifications as deployed, where shareable |
+| `protocol/01_preregistration/` | Analysis preregistration |
+| `protocol/02_design_documentation/` | POC Design Specification, Implementation Record, Glossary, Tool and UX Inventory, Participant Communications |
+| `protocol/03_data_documentation/` | Data dictionary (a copy of the file in `common`), Data Lifecycle and Provenance record |
+| `materials/` | None in this repository. The UK Implementation Architecture is in the `framework` repository. |
 | `code/` | The full scripted analysis pipeline, numbered in run order, with `renv.lock` |
 | `data/` | Data access statement (`data/README.md`); `data/derived/` holds no dataset at present (see Data availability) |
-| `outputs/` | Tables and figures produced by the pipeline |
+| `outputs/` | Supporting information as submitted (`outputs/supplementary_material/`) |
 
 ## Data availability
 
 | Category | What | Where |
 |---|---|---|
-| Open | Analysis code, data dictionary, data lifecycle and provenance record, preregistration, design documents | This repository; [`common/data-documentation/`](https://github.com/a-safe-bet-research/common); https://doi.org/10.17605/OSF.IO/X6BFD |
-| Derived or aggregated only | None at present. The synthetic development dataset generated by `03_poc_simulate.R` is not deposited or available for sharing, as it encodes marginal distributions and transition structures fitted to operator data collected under the data-sharing agreements; whether sharing a fitted analogue is permitted has not been determined | Retained by the research team for audit and verification |
-| Controlled access | A pseudonymised participant-level dataset of the aggregated participant-period and participant-month variables used in the analyses, available to qualified researchers on reasonable request under a data use agreement, subject to approval by the participating operator and the Erasmus University Rotterdam data protection officer | Requests to gamblingresearch@essb.eur.nl; the data management plan names DANS as the intended controlled-access repository, and the deposit route is to be confirmed following the programme data review |
-| Not shareable | Individual event-level data, the raw operator extracts (Parquet) and the internal rename crosswalk that maps operator schema names to the project's neutral names | Held by the research team on Erasmus University Rotterdam research infrastructure under the data-sharing agreements |
+| Open | Analysis code, data dictionary, data lifecycle and provenance record, preregistration, design documents | This repository; the data dictionary is a copy of the file in [`common/data-documentation/`](https://github.com/a-safe-bet-research/common); registered versions at https://doi.org/10.17605/OSF.IO/X6BFD |
+| Derived or aggregated only | None at present. The synthetic development dataset generated by `03_poc_simulate.R` is not deposited or available for sharing, as it encodes marginal distributions and transition structures fitted to operator data collected under the collaboration agreement; whether sharing a fitted analogue is permitted has not been determined | Retained by the research team for audit and verification |
+| Controlled access | A pseudonymised participant-level dataset of the aggregated participant-period and participant-month variables used in the analyses, available to qualified researchers on justified request under a data sharing agreement with Erasmus University Rotterdam | Requests to gamblingresearch@essb.eur.nl |
+| Not shareable | Individual event-level data, the raw operator extracts (Parquet) and the internal rename crosswalk that maps operator schema names to the project's neutral names | Held by the research team on Erasmus University Rotterdam research infrastructure under the collaboration agreement |
 
 Full statement in `data/README.md`.
 
 ## Reproducing the analysis
 
-R project (R 4.3.3). Restore the environment from `code/renv.lock`, place input data as described in `data/README.md`, and run the scripts in `code/` in numbered order from the repository root. Data are accessed through DuckDB on Parquet files. Credentials and paths are read from `.Renviron`, which is not part of the repository.
+R project (R 4.3.3). Restore the environment from `code/renv.lock`, set the two environment variables described in `code/README.md`, and run the scripts in numbered order with the working directory set to `code/`. Data are accessed through DuckDB on Parquet files. Credentials and paths are read from `.Renviron`, which is not part of the repository.
 
 ## Ethics and governance
 
@@ -51,11 +53,11 @@ Approved by the Research Ethics Review Committee of the Department of Psychology
 
 ## Funding and partners
 
-See the [organisation profile](https://github.com/a-safe-bet-research). The operator delivered the intervention on its platform and shared pseudonymised data under the data-sharing agreements; the funder and the operators had no role in study design, analysis, interpretation or the decision to submit for publication. The collaboration agreement provides for the operators to see manuscripts before publication but grants no right of veto, approval or delay. The collaboration concluded in January 2026; all analysis and reporting is carried out independently by the academic team.
+See the [organisation profile](https://github.com/a-safe-bet-research). The operator delivered the intervention on its platform and shared pseudonymised data under the collaboration agreement; the funder and the operators had no role in study design, analysis, interpretation or the decision to submit for publication. The collaboration agreement provides for the operators to see manuscripts before publication but grants no right of veto, approval or delay. The collaboration concluded in January 2026; all analysis and reporting is carried out independently by the academic team.
 
 ## Authors and contributions
 
-Harriet R. Galvin (ORCID 0000-0003-0698-5093; Erasmus University Rotterdam), Eric-Jan Wagenmakers (ORCID 0000-0003-1596-1034; University of Amsterdam), Ingmar Visser (ORCID 0000-0003-3855-2778; University of Amsterdam), Michael J. A. Wohl (ORCID 0000-0001-6945-5562; Carleton University), Leroy Snippe (no ORCID; University of Amsterdam), Reinout W. Wiers (ORCID 0000-0002-4312-9766; University of Amsterdam), Marilisa Boffo (ORCID 0000-0003-4730-7838; Erasmus University Rotterdam). Author list as in the current manuscript draft, to be confirmed at submission. CRediT roles as stated in the publication.
+Harriet R. Galvin (ORCID 0000-0003-0698-5093; Erasmus University Rotterdam), Eric-Jan Wagenmakers (ORCID 0000-0003-1596-1034; University of Amsterdam), Ingmar Visser (ORCID 0000-0003-3855-2778; University of Amsterdam), Max Matsinger (no ORCID; Erasmus University Rotterdam), Leroy Snippe (no ORCID; University of Amsterdam), Reinout W. Wiers (ORCID 0000-0002-4312-9766; University of Amsterdam), Michael J. A. Wohl (ORCID 0000-0001-6945-5562; Carleton University), Marilisa Boffo (ORCID 0000-0003-4730-7838; Erasmus University Rotterdam). CRediT roles as stated in the publication.
 
 ## Licences
 
