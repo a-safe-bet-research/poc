@@ -1,0 +1,7 @@
+# Never commit the real environment file or anything produced from the data
+.Renviron
+results/
+logs/
+*.rds
+*.parquet
+*.csv
