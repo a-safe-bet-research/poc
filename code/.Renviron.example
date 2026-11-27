@@ -1,0 +1,7 @@
+# Example environment file for the A Safe Bet proof-of-concept analysis code.
+# Copy this file to .Renviron in the folder you start R from (the code folder)
+# and replace the two values. The real .Renviron stays on the server and is
+# never committed to the repository: it names the server paths, which are not
+# public.
+ASB_DATA_ROOT=/path/to/data
+ASB_CROSSWALK=/path/to/crosswalk.csv
